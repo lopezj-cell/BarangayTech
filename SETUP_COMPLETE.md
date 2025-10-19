@@ -5,7 +5,7 @@
 ### ? 1. Firebase Web API Key Updated
 **File**: `BarangayTech.Maui/Services/Auth/AuthService.cs`
 ```csharp
-private const string FIREBASE_WEB_API_KEY = "AIzaSyDIAfxJmkoQYjEm7TMf1xMvr20YtCHaqLk";
+private const string FIREBASE_WEB_API_KEY = "AIzaSyDlAfxJmkoQYjEm7TMf1xMv2r0YtCHaqLk";
 ```
 
 ### ? 2. Project ID Configured
