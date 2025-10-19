@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace BarangayTech.Maui;
+namespace BarangayTech;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

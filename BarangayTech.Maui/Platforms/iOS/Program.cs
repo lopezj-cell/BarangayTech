@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace BarangayTech.Maui;
+namespace BarangayTech;
 
 public class Program
 {

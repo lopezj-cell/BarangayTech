@@ -2,7 +2,7 @@
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 
-namespace BarangayTech.Maui;
+namespace BarangayTech;
 
 public static class MauiProgram
 {
@@ -17,7 +17,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		// Register pages and services if needed
+		// Register primary pages for DI navigation
 		builder.Services.AddSingleton<BarangayTech.Views.Auth.LoginPage>();
 
 #if DEBUG

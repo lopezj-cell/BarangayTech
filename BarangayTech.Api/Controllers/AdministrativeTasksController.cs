@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
+using Google.Cloud.Firestore;
 using BarangayTech.Api.Services;
 using BarangayTech.Api.Models;
 
@@ -9,27 +9,38 @@ namespace BarangayTech.Api.Controllers
     [Route("api/[controller]")]
     public class AdministrativeTasksController : ControllerBase
     {
-        private readonly IMongoCollection<AdministrativeTask> _col;
-        public AdministrativeTasksController(MongoService mongo)
+        private readonly CollectionReference _collection;
+
+        public AdministrativeTasksController(FirebaseService firebase)
         {
-            _col = mongo.Database.GetCollection<AdministrativeTask>("administrative_tasks");
+            _collection = firebase.Firestore.Collection("administrative_tasks");
         }
 
         [HttpGet]
         public async Task<ActionResult<List<AdministrativeTask>>> GetAll()
         {
-            var list = await _col.Find(FilterDefinition<AdministrativeTask>.Empty)
-                                 .SortByDescending(t => t.CreatedAt)
-                                 .ToListAsync();
-            return Ok(list);
+            var snapshot = await _collection
+                .OrderByDescending("CreatedAt")
+                .GetSnapshotAsync();
+
+            var tasks = snapshot.Documents
+                .Select(doc => doc.ConvertTo<AdministrativeTask>())
+                .ToList();
+
+            return Ok(tasks);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<AdministrativeTask>> GetById(string id)
         {
-            var item = await _col.Find(t => t.Id == id).FirstOrDefaultAsync();
-            if (item == null) return NotFound();
-            return Ok(item);
+            var docRef = _collection.Document(id);
+            var snapshot = await docRef.GetSnapshotAsync();
+
+            if (!snapshot.Exists)
+                return NotFound();
+
+            var task = snapshot.ConvertTo<AdministrativeTask>();
+            return Ok(task);
         }
 
         [HttpPost]
@@ -38,25 +49,39 @@ namespace BarangayTech.Api.Controllers
             input.Id = null;
             input.CreatedAt = DateTime.UtcNow;
             input.UpdatedAt = DateTime.UtcNow;
-            await _col.InsertOneAsync(input);
+
+            var docRef = await _collection.AddAsync(input);
+            input.Id = docRef.Id;
+
             return CreatedAtAction(nameof(GetById), new { id = input.Id }, input);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] AdministrativeTask update)
         {
+            var docRef = _collection.Document(id);
+            var snapshot = await docRef.GetSnapshotAsync();
+
+            if (!snapshot.Exists)
+                return NotFound();
+
             update.Id = id;
             update.UpdatedAt = DateTime.UtcNow;
-            var result = await _col.ReplaceOneAsync(t => t.Id == id, update);
-            if (result.MatchedCount == 0) return NotFound();
+
+            await docRef.SetAsync(update, SetOptions.Overwrite);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var result = await _col.DeleteOneAsync(t => t.Id == id);
-            if (result.DeletedCount == 0) return NotFound();
+            var docRef = _collection.Document(id);
+            var snapshot = await docRef.GetSnapshotAsync();
+
+            if (!snapshot.Exists)
+                return NotFound();
+
+            await docRef.DeleteAsync();
             return NoContent();
         }
     }

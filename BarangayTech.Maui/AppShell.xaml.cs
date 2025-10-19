@@ -1,4 +1,6 @@
-﻿namespace BarangayTech.Maui;
+﻿using Microsoft.Maui.Controls;
+
+namespace BarangayTech;
 
 public partial class AppShell : Shell
 {

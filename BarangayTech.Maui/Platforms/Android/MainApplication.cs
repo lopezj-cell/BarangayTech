@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace BarangayTech.Maui;
+namespace BarangayTech;
 
 [Application]
 public class MainApplication : MauiApplication
