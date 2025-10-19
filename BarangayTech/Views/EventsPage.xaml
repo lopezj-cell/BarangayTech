@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.EventsPage"
+             Title="Events">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="{StaticResource PrimaryColor}" 
+               Padding="20,25,20,20" 
+               CornerRadius="0"
+               HasShadow="True"
+               Margin="0">
+            <StackLayout>
+                <Label Text="Community Events" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="White" 
+                       HorizontalOptions="Center"/>
+                <Label Text="Stay updated with upcoming barangay activities" 
+                       FontSize="13" 
+                       TextColor="{StaticResource PrimaryLightColor}" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Events List -->
+        <ScrollView Grid.Row="1" Padding="15">
+            <StackLayout x:Name="EventsContainer">
+                
+                <!-- Sample Event 1 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#2E7D32" 
+                                   Padding="10" 
+                                   CornerRadius="25"
+                                   WidthRequest="50"
+                                   HeightRequest="50">
+                                <Label Text="15" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0">
+                                <Label Text="Community Clean-up Drive" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="📅 December 15, 2024 • 7:00 AM" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                                <Label Text="📍 Barangay Plaza" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Label Grid.Column="2" 
+                                   Text="🟢" 
+                                   FontSize="20"
+                                   VerticalOptions="Start"/>
+                        </Grid>
+                        
+                        <Label Text="Join us for our monthly community clean-up drive. Bring your own cleaning materials and let's work together to keep our barangay clean and beautiful." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#E8F5E8" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Community Service" 
+                                       FontSize="10" 
+                                       TextColor="#2E7D32"/>
+                            </Frame>
+                            <Frame BackgroundColor="#FFF3E0" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Volunteer" 
+                                       FontSize="10" 
+                                       TextColor="#FF8F00"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="Learn More" 
+                                BackgroundColor="#2E7D32" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnEventDetailsClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Sample Event 2 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#1976D2" 
+                                   Padding="10" 
+                                   CornerRadius="25"
+                                   WidthRequest="50"
+                                   HeightRequest="50">
+                                <Label Text="20" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0">
+                                <Label Text="Health and Wellness Seminar" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="📅 December 20, 2024 • 2:00 PM" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                                <Label Text="📍 Barangay Hall" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Label Grid.Column="2" 
+                                   Text="🟡" 
+                                   FontSize="20"
+                                   VerticalOptions="Start"/>
+                        </Grid>
+                        
+                        <Label Text="Learn about healthy living, nutrition, and disease prevention from our local health experts. Free health check-ups will also be available." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#E3F2FD" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Health" 
+                                       FontSize="10" 
+                                       TextColor="#1976D2"/>
+                            </Frame>
+                            <Frame BackgroundColor="#F3E5F5" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Education" 
+                                       FontSize="10" 
+                                       TextColor="#7B1FA2"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="Register Now" 
+                                BackgroundColor="#1976D2" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnEventRegisterClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Sample Event 3 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#FF5722" 
+                                   Padding="10" 
+                                   CornerRadius="25"
+                                   WidthRequest="50"
+                                   HeightRequest="50">
+                                <Label Text="25" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="White" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0">
+                                <Label Text="Christmas Festival" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="📅 December 25, 2024 • 6:00 PM" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                                <Label Text="📍 Community Center" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Label Grid.Column="2" 
+                                   Text="🔴" 
+                                   FontSize="20"
+                                   VerticalOptions="Start"/>
+                        </Grid>
+                        
+                        <Label Text="Celebrate Christmas with the community! Enjoy food, games, performances, and gift-giving for children. Bring your family and friends!" 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#FFEBEE" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Festival" 
+                                       FontSize="10" 
+                                       TextColor="#D32F2F"/>
+                            </Frame>
+                            <Frame BackgroundColor="#FFF8E1" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Family" 
+                                       FontSize="10" 
+                                       TextColor="#F57F17"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="Join Celebration" 
+                                BackgroundColor="#FF5722" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnEventJoinClicked"/>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

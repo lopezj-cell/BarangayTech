@@ -1,0 +1,12 @@
+BarangayTech.Android/Properties/AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.barangaytech.app">
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+  <application android:allowBackup="true" android:label="BarangayTech" android:theme="@style/MainTheme">
+    <!-- Optional: default channel for notifications -->
+    <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="default" />
+  </application>
+</manifest>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:BarangayTech.Views"
+            xmlns:admin="clr-namespace:BarangayTech.Views.Admin"
+            x:Class="BarangayTech.Views.Auth.AdminMainPage"
+            Title="BarangayTech Admin">
+    
+    <admin:AdminDashboardPage Title="Dashboard" />
+    <admin:ManageEventsPage Title="Events" />
+    <admin:ManageAnnouncementsPage Title="Announcements" />
+    <admin:ManageServicesPage Title="Services" />
+    <admin:ManageUsersPage Title="Users" />
+    <admin:AdminTasksPage Title="Admin Tasks" />
+    <admin:AdminProfilePage Title="Profile" />
+    
+</TabbedPage>

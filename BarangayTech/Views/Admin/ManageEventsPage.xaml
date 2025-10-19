@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.Admin.ManageEventsPage"
+             Title="Manage Events">
+    
+    <StackLayout Padding="20">
+        <Label Text="Event Management" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               TextColor="{StaticResource PrimaryColor}" 
+               HorizontalOptions="Center"
+               Margin="0,20,0,30"/>
+        
+        <Button Text="Add New Event" 
+                BackgroundColor="{StaticResource PrimaryColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnAddEventClicked"/>
+        
+        <Button Text="Edit Existing Events" 
+                BackgroundColor="{StaticResource SecondaryColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnEditEventsClicked"/>
+        
+        <Button Text="View Event Analytics" 
+                BackgroundColor="{StaticResource AccentColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnViewAnalyticsClicked"/>
+        
+        <Label Text="Admin Feature: Full event management capabilities including creation, editing, deletion, and analytics." 
+               FontSize="14" 
+               TextColor="{StaticResource TextSecondaryColor}" 
+               HorizontalTextAlignment="Center"
+               Margin="0,30,0,0"/>
+    </StackLayout>
+</ContentPage>

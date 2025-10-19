@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "716522359221",
+    "project_id": "barangaytech",
+    "storage_bucket": "barangaytech.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716522359221:android:45d0ff54944282d127f1fc",
+        "android_client_info": {
+          "package_name": "com.finals.barangaytech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAfxJmkoQYjEm7TMf1xMv2r0YtCHaqLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716522359221:android:773af432db54127a27f1fc",
+        "android_client_info": {
+          "package_name": "com.yourname.barangaytech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAfxJmkoQYjEm7TMf1xMv2r0YtCHaqLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716522359221:android:bee23b52dc3049c827f1fc",
+        "android_client_info": {
+          "package_name": "final.batangaytech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAfxJmkoQYjEm7TMf1xMv2r0YtCHaqLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

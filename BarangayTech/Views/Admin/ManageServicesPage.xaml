@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.Admin.ManageServicesPage"
+             Title="Manage Services">
+    
+    <StackLayout Padding="20">
+        <Label Text="Service Management" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               TextColor="{StaticResource SecondaryColor}" 
+               HorizontalOptions="Center"
+               Margin="0,20,0,30"/>
+        
+        <Button Text="Add New Service" 
+                BackgroundColor="{StaticResource SecondaryColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnAddServiceClicked"/>
+        
+        <Button Text="Update Service Info" 
+                BackgroundColor="{StaticResource PrimaryColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnUpdateServiceClicked"/>
+        
+        <Button Text="Service Requests" 
+                BackgroundColor="{StaticResource AccentColor}" 
+                TextColor="White" 
+                CornerRadius="20"
+                Margin="0,10"
+                Clicked="OnServiceRequestsClicked"/>
+        
+        <Label Text="Admin Feature: Manage all barangay services, requirements, and processing times." 
+               FontSize="14" 
+               TextColor="{StaticResource TextSecondaryColor}" 
+               HorizontalTextAlignment="Center"
+               Margin="0,30,0,0"/>
+    </StackLayout>
+</ContentPage>

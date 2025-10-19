@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.Auth.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    
+    <ScrollView>
+        <StackLayout Padding="30,50,30,30" Spacing="20">
+            
+            <!-- Logo Section -->
+            <StackLayout HorizontalOptions="Center" Margin="0,20,0,40">
+                <Frame BackgroundColor="{StaticResource PrimaryColor}" 
+                       CornerRadius="50" 
+                       WidthRequest="100" 
+                       HeightRequest="100" 
+                       HorizontalOptions="Center"
+                       HasShadow="True"
+                       Padding="0">
+                    <Label Text="???" 
+                           FontSize="50" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+                </Frame>
+                
+                <Label Text="BarangayTech" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       TextColor="{StaticResource PrimaryColor}" 
+                       HorizontalOptions="Center"
+                       Margin="0,15,0,0"/>
+                
+                <Label Text="Smart Governance Platform" 
+                       FontSize="14" 
+                       TextColor="{StaticResource TextSecondaryColor}" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <!-- Login Form -->
+            <Frame BackgroundColor="{StaticResource SurfaceColor}" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   Padding="25">
+                <StackLayout Spacing="20">
+                    
+                    <Label Text="Sign In" 
+                           FontSize="24" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource TextPrimaryColor}" 
+                           HorizontalOptions="Center"/>
+                    
+                    <!-- Username Field -->
+                    <StackLayout>
+                        <Label Text="Username / Email" 
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimaryColor}"/>
+                        <Frame BackgroundColor="{StaticResource BackgroundColor}" 
+                               CornerRadius="8" 
+                               Padding="0" 
+                               HasShadow="False">
+                            <Entry x:Name="UsernameEntry" 
+                                   Placeholder="Enter your username" 
+                                   FontSize="16"
+                                   BackgroundColor="Transparent"/>
+                        </Frame>
+                    </StackLayout>
+                    
+                    <!-- Password Field -->
+                    <StackLayout>
+                        <Label Text="Password" 
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimaryColor}"/>
+                        <Frame BackgroundColor="{StaticResource BackgroundColor}" 
+                               CornerRadius="8" 
+                               Padding="0" 
+                               HasShadow="False">
+                            <Entry x:Name="PasswordEntry" 
+                                   Placeholder="Enter your password" 
+                                   IsPassword="True" 
+                                   FontSize="16"
+                                   BackgroundColor="Transparent"/>
+                        </Frame>
+                    </StackLayout>
+                    
+                    <!-- Error Message -->
+                    <Label x:Name="ErrorLabel" 
+                           Text="" 
+                           FontSize="12" 
+                           TextColor="Red" 
+                           HorizontalOptions="Center"
+                           IsVisible="False"/>
+                    
+                    <!-- Login Button -->
+                    <Button x:Name="LoginButton" 
+                            Text="Sign In" 
+                            BackgroundColor="{StaticResource PrimaryColor}" 
+                            TextColor="White" 
+                            CornerRadius="25"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            Padding="0,15"
+                            Margin="0,10,0,0"
+                            Clicked="OnLoginClicked"/>
+                    
+                    <!-- Loading Indicator -->
+                    <ActivityIndicator x:Name="LoadingIndicator" 
+                                       IsVisible="False" 
+                                       IsRunning="False"
+                                       Color="{StaticResource PrimaryColor}"
+                                       HorizontalOptions="Center"/>
+                    
+                </StackLayout>
+            </Frame>
+
+            <!-- Quick Login Section -->
+            <Frame BackgroundColor="{StaticResource SurfaceColor}" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   Padding="20"
+                   Margin="0,20,0,0">
+                <StackLayout>
+                    <Label Text="Quick Login (Demo)" 
+                           FontSize="16" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource TextPrimaryColor}" 
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,15"/>
+                    
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
+                        
+                        <!-- Admin Login -->
+                        <Button Grid.Row="0" Grid.Column="0"
+                                Text="Admin Login"
+                                BackgroundColor="{StaticResource SecondaryColor}"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="12"
+                                Clicked="OnQuickAdminLoginClicked"/>
+                        
+                        <!-- Resident Login -->
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Text="Resident Login"
+                                BackgroundColor="{StaticResource AccentColor}"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="12"
+                                Clicked="OnQuickResidentLoginClicked"/>
+                        
+                        <!-- Super Admin Login -->
+                        <Button Grid.Row="1" Grid.ColumnSpan="2"
+                                Text="Super Admin Login"
+                                BackgroundColor="#7B1FA2"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="12"
+                                Clicked="OnQuickSuperAdminLoginClicked"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!-- Sample Credentials -->
+            <Button Text="View Sample Credentials" 
+                    BackgroundColor="Transparent" 
+                    TextColor="{StaticResource TextSecondaryColor}" 
+                    FontSize="14"
+                    Clicked="OnViewCredentialsClicked"/>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

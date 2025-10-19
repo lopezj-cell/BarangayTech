@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.DashboardPage"
+             Title="Home">
+    
+    <ScrollView>
+        <StackLayout Padding="0">
+            
+            <!-- Header Section -->
+            <Frame BackgroundColor="{StaticResource PrimaryColor}" 
+                   Padding="20,30,20,20" 
+                   CornerRadius="0"
+                   HasShadow="True"
+                   Margin="0,0,0,0">
+                <StackLayout>
+                    <Label Text="Welcome to BarangayTech" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"/>
+                    <Label Text="Smart Governance &amp; Community Platform" 
+                           FontSize="13" 
+                           TextColor="{StaticResource PrimaryLightColor}" 
+                           HorizontalOptions="Center"/>
+                    <Label x:Name="DateTimeLabel"
+                           FontSize="11" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"
+                           Margin="0,8,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Quick Stats Section -->
+            <StackLayout Padding="15,20">
+                <Label Text="Quick Overview" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="#2E7D32" 
+                       Margin="0,0,0,15"/>
+                
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*">
+                    
+                    <!-- Active Events Card -->
+                    <Frame Grid.Row="0" Grid.Column="0" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="📅" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="5" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#2E7D32" HorizontalOptions="Center"/>
+                            <Label Text="Active Events" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- New Announcements Card -->
+                    <Frame Grid.Row="0" Grid.Column="1" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="📢" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="3" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#FF5722" HorizontalOptions="Center"/>
+                            <Label Text="New Updates" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Available Services Card -->
+                    <Frame Grid.Row="1" Grid.Column="0" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="🏢" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="12" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#1976D2" HorizontalOptions="Center"/>
+                            <Label Text="Services" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Officials Card -->
+                    <Frame Grid.Row="1" Grid.Column="1" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="👥" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="8" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#7B1FA2" HorizontalOptions="Center"/>
+                            <Label Text="Officials" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+            <!-- Recent Updates Section -->
+            <StackLayout Padding="15,0,15,20">
+                <Label Text="Recent Updates" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="#2E7D32" 
+                       Margin="0,0,0,15"/>
+                
+                <!-- Sample Recent Update -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,10">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="Community Clean-up Drive" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold" 
+                                   TextColor="#2E7D32"/>
+                            <Label Grid.Column="1" 
+                                   Text="2 hours ago" 
+                                   FontSize="12" 
+                                   TextColor="Gray"/>
+                        </Grid>
+                        <Label Text="Join us this Saturday for our monthly community clean-up drive. Let's keep our barangay clean and green!" 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,5,0,0"/>
+                    </StackLayout>
+                </Frame>
+                
+                <!-- Sample Recent Update 2 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,10">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="New Health Center Hours" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold" 
+                                   TextColor="#2E7D32"/>
+                            <Label Grid.Column="1" 
+                                   Text="1 day ago" 
+                                   FontSize="12" 
+                                   TextColor="Gray"/>
+                        </Grid>
+                        <Label Text="The barangay health center will now be open from 7:00 AM to 5:00 PM, Monday to Friday." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,5,0,0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Quick Actions Section -->
+            <StackLayout Padding="15,0,15,20">
+                <Label Text="Quick Actions" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="#2E7D32" 
+                       Margin="0,0,0,15"/>
+                
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*">
+                    
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Text="Report Issue"
+                            BackgroundColor="#FF5722"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnReportIssueClicked"/>
+                    
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Text="Emergency"
+                            BackgroundColor="#D32F2F"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnEmergencyClicked"/>
+                    
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Text="Contact Us"
+                            BackgroundColor="#1976D2"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnContactUsClicked"/>
+                    
+                    <Button Grid.Row="1" Grid.Column="1"
+                            Text="Profile"
+                            BackgroundColor="#7B1FA2"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnProfileClicked"/>
+                </Grid>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

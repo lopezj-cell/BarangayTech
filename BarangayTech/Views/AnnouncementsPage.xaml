@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.AnnouncementsPage"
+             Title="Updates">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="{StaticResource AccentColor}" 
+               Padding="20,25,20,20" 
+               CornerRadius="0"
+               HasShadow="True"
+               Margin="0">
+            <StackLayout>
+                <Label Text="Community Updates" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="White" 
+                       HorizontalOptions="Center"/>
+                <Label Text="Latest announcements and important notices" 
+                       FontSize="13" 
+                       TextColor="#FFCCBC" 
+                       HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="8" Margin="0,8,0,0">
+                  <Button Text="AI Summary" Clicked="OnSummaryClicked" CornerRadius="16" />
+                  <Button Text="Translate (Filipino)" Clicked="OnTranslateClicked" CornerRadius="16" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+        <!-- Announcements List -->
+        <ScrollView Grid.Row="1" Padding="15">
+            <StackLayout>
+                <Label x:Name="AiOutputLabel" Text="" TextColor="#424242" />
+                <StackLayout x:Name="AnnouncementsContainer">
+                
+                <!-- Urgent Announcement -->
+                <Frame BackgroundColor="#FFEBEE" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15"
+                       BorderColor="#F44336">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="🚨" 
+                                   FontSize="24"
+                                   VerticalOptions="Start"/>
+                            
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="URGENT: Water Service Interruption" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#D32F2F"/>
+                                <Label Text="Posted 30 minutes ago by Barangay Captain" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#D32F2F" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False">
+                                <Label Text="URGENT" 
+                                       FontSize="10" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Label Text="Water service will be temporarily interrupted tomorrow (December 14) from 8:00 AM to 4:00 PM due to pipeline maintenance. Please store water in advance." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <Button Text="Read More" 
+                                BackgroundColor="#D32F2F" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnAnnouncementDetailsClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Regular Announcement 1 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="📢" 
+                                   FontSize="24"
+                                   VerticalOptions="Start"/>
+                            
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="New Garbage Collection Schedule" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="Posted 2 hours ago by Sanitation Office" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False">
+                                <Label Text="HIGH" 
+                                       FontSize="10" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Label Text="Starting next week, garbage collection will be on Tuesdays and Fridays. Please segregate your waste properly and place bins outside by 6:00 AM." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#E8F5E8" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Sanitation" 
+                                       FontSize="10" 
+                                       TextColor="#2E7D32"/>
+                            </Frame>
+                            <Frame BackgroundColor="#FFF3E0" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Schedule Change" 
+                                       FontSize="10" 
+                                       TextColor="#FF8F00"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="View Details" 
+                                BackgroundColor="#4CAF50" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnAnnouncementDetailsClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Regular Announcement 2 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="🏥" 
+                                   FontSize="24"
+                                   VerticalOptions="Start"/>
+                            
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Free Medical Check-up Available" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="Posted 1 day ago by Health Center" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#2196F3" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False">
+                                <Label Text="MEDIUM" 
+                                       FontSize="10" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Label Text="The barangay health center is offering free medical check-ups for senior citizens and children. Available every Monday and Wednesday from 8:00 AM to 12:00 PM." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#E3F2FD" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Health" 
+                                       FontSize="10" 
+                                       TextColor="#1976D2"/>
+                            </Frame>
+                            <Frame BackgroundColor="#F3E5F5" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Free Service" 
+                                       FontSize="10" 
+                                       TextColor="#7B1FA2"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="Learn More" 
+                                BackgroundColor="#2196F3" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnAnnouncementDetailsClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Regular Announcement 3 -->
+                <Frame BackgroundColor="White" 
+                       Padding="15" 
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="🚗" 
+                                   FontSize="24"
+                                   VerticalOptions="Start"/>
+                            
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Road Repair and Maintenance" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32"/>
+                                <Label Text="Posted 2 days ago by Public Works" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#FF9800" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False">
+                                <Label Text="LOW" 
+                                       FontSize="10" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Label Text="Road repairs on Main Street will begin next Monday. Expect minor traffic delays during construction hours (7:00 AM - 5:00 PM). Alternative routes are available." 
+                               FontSize="14" 
+                               TextColor="#424242"
+                               Margin="0,10,0,0"/>
+                        
+                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                            <Frame BackgroundColor="#FFF3E0" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Infrastructure" 
+                                       FontSize="10" 
+                                       TextColor="#FF8F00"/>
+                            </Frame>
+                            <Frame BackgroundColor="#FFEBEE" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False">
+                                <Label Text="Traffic" 
+                                       FontSize="10" 
+                                       TextColor="#D32F2F"/>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <Button Text="View Details" 
+                                BackgroundColor="#FF9800" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnAnnouncementDetailsClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

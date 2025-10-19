@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.OfficialsPage"
+             Title="Officials">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#7B1FA2" 
+               Padding="20,25,20,20" 
+               CornerRadius="0"
+               HasShadow="True"
+               Margin="0">
+            <StackLayout>
+                <Label Text="Barangay Officials" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="White" 
+                       HorizontalOptions="Center"/>
+                <Label Text="Meet your local government representatives" 
+                       FontSize="13" 
+                       TextColor="#E1BEE7" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Officials List -->
+        <ScrollView Grid.Row="1" Padding="15">
+            <StackLayout x:Name="OfficialsContainer">
+                
+                <!-- Barangay Captain -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="80,*,Auto">
+                            <!-- Profile Picture Placeholder -->
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#7B1FA2" 
+                                   Padding="0" 
+                                   CornerRadius="40"
+                                   WidthRequest="80"
+                                   HeightRequest="80"
+                                   HasShadow="False">
+                                <Label Text="👨‍💼" 
+                                       FontSize="40" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Hon. Juan Dela Cruz" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#7B1FA2"/>
+                                <Label Text="Barangay Captain" 
+                                       FontSize="14" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4567" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                                <Label Text="📧 captain@barangaytech.gov.ph" 
+                                       FontSize="12" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="AVAILABLE" 
+                                       FontSize="10" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Label Text="Office Hours: Monday - Friday, 8:00 AM - 5:00 PM" 
+                               FontSize="12" 
+                               TextColor="#666"
+                               Margin="0,10,0,0"/>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#7B1FA2" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Kagawad 1 -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="60,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#2196F3" 
+                                   Padding="0" 
+                                   CornerRadius="30"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   HasShadow="False">
+                                <Label Text="👩‍💼" 
+                                       FontSize="30" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Hon. Maria Santos" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2196F3"/>
+                                <Label Text="Kagawad - Health &amp; Sanitation" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4568" 
+                                       FontSize="11" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="AVAILABLE" 
+                                       FontSize="9" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#2196F3" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Kagawad 2 -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="60,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="0" 
+                                   CornerRadius="30"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   HasShadow="False">
+                                <Label Text="👨‍💼" 
+                                       FontSize="30" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Hon. Roberto Garcia" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#4CAF50"/>
+                                <Label Text="Kagawad - Public Safety" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4569" 
+                                       FontSize="11" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#FF9800" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="BUSY" 
+                                       FontSize="9" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#4CAF50" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Kagawad 3 -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="60,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#FF5722" 
+                                   Padding="0" 
+                                   CornerRadius="30"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   HasShadow="False">
+                                <Label Text="👩‍💼" 
+                                       FontSize="30" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Hon. Ana Reyes" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#FF5722"/>
+                                <Label Text="Kagawad - Education &amp; Youth" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4570" 
+                                       FontSize="11" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="AVAILABLE" 
+                                       FontSize="9" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#FF5722" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Secretary -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="60,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#9C27B0" 
+                                   Padding="0" 
+                                   CornerRadius="30"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   HasShadow="False">
+                                <Label Text="👩‍💼" 
+                                       FontSize="30" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Ms. Carmen Lopez" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#9C27B0"/>
+                                <Label Text="Barangay Secretary" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4571" 
+                                       FontSize="11" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#4CAF50" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="AVAILABLE" 
+                                       FontSize="9" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#9C27B0" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Treasurer -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,15">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="60,*,Auto">
+                            <Frame Grid.Column="0" 
+                                   BackgroundColor="#607D8B" 
+                                   Padding="0" 
+                                   CornerRadius="30"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   HasShadow="False">
+                                <Label Text="👨‍💼" 
+                                       FontSize="30" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            
+                            <StackLayout Grid.Column="1" Margin="15,0,0,0" VerticalOptions="Center">
+                                <Label Text="Mr. Pedro Gonzales" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#607D8B"/>
+                                <Label Text="Barangay Treasurer" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="#424242"/>
+                                <Label Text="📞 (02) 123-4572" 
+                                       FontSize="11" 
+                                       TextColor="#666"/>
+                            </StackLayout>
+                            
+                            <Frame Grid.Column="2" 
+                                   BackgroundColor="#F44336" 
+                                   Padding="6,3" 
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   VerticalOptions="Start">
+                                <Label Text="OFFLINE" 
+                                       FontSize="9" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                            </Frame>
+                        </Grid>
+                        
+                        <Button Text="Contact" 
+                                BackgroundColor="#607D8B" 
+                                TextColor="White" 
+                                CornerRadius="20"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Clicked="OnContactOfficialClicked"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Contact Information -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Margin="0,0,0,0">
+                    <StackLayout>
+                        <Label Text="📞 General Contact Information" 
+                               FontSize="16" 
+                               FontAttributes="Bold" 
+                               TextColor="#7B1FA2" 
+                               HorizontalOptions="Center"/>
+                        
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" Margin="0,15,0,0">
+                            <Label Grid.Row="0" Grid.Column="0" Text="🏢" FontSize="16"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="Barangay Hall Main Office" FontSize="14" Margin="10,0,0,0"/>
+                            
+                            <Label Grid.Row="1" Grid.Column="0" Text="📞" FontSize="16"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="(02) 123-4567" FontSize="14" Margin="10,0,0,0"/>
+                            
+                            <Label Grid.Row="2" Grid.Column="0" Text="📧" FontSize="16"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="info@barangaytech.gov.ph" FontSize="14" Margin="10,0,0,0"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
