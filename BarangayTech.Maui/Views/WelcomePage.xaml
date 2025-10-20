@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.WelcomePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#2E7D32">
+    
+    <Grid RowDefinitions="*,Auto,*">
+        
+        <!-- Logo and Title Section -->
+        <StackLayout Grid.Row="1" VerticalOptions="Center" Padding="40">
+            
+            <!-- App Logo Placeholder -->
+            <Frame BackgroundColor="White" 
+                   CornerRadius="60" 
+                   WidthRequest="120" 
+                   HeightRequest="120" 
+                   HorizontalOptions="Center"
+                   HasShadow="True"
+                   Padding="0">
+                <Label Text="🏛️" 
+                       FontSize="60" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"/>
+            </Frame>
+            
+            <!-- App Title -->
+            <Label Text="BarangayTech" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+            
+            <!-- App Subtitle -->
+            <Label Text="Smart Governance &amp; Community Platform" 
+                   FontSize="16" 
+                   TextColor="#A5D6A7" 
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,5,0,0"/>
+            
+            <!-- Features List -->
+            <StackLayout Margin="0,40,0,0" Spacing="15">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="📅" FontSize="20"/>
+                    <Label Text="Stay updated with community events" 
+                           FontSize="14" 
+                           TextColor="White" 
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="📢" FontSize="20"/>
+                    <Label Text="Receive important announcements" 
+                           FontSize="14" 
+                           TextColor="White" 
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="🏢" FontSize="20"/>
+                    <Label Text="Access government services easily" 
+                           FontSize="14" 
+                           TextColor="White" 
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="👥" FontSize="20"/>
+                    <Label Text="Connect with barangay officials" 
+                           FontSize="14" 
+                           TextColor="White" 
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <!-- Get Started Button -->
+            <Button Text="Get Started" 
+                    BackgroundColor="White" 
+                    TextColor="#2E7D32" 
+                    CornerRadius="25"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Padding="40,15"
+                    Margin="0,40,0,0"
+                    Clicked="OnGetStartedClicked"/>
+            
+            <!-- Version Info -->
+            <Label Text="Version 1.0.0" 
+                   FontSize="12" 
+                   TextColor="#A5D6A7" 
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+            
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>

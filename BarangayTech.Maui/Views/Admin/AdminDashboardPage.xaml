@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.Admin.AdminDashboardPage"
+             Title="Admin Dashboard">
+    
+    <ScrollView>
+        <StackLayout Padding="0">
+            
+            <!-- Header Section -->
+            <Frame BackgroundColor="{StaticResource PrimaryColor}" 
+                   Padding="20,30,20,20" 
+                   CornerRadius="0"
+                   HasShadow="True">
+                <StackLayout>
+                    <Label x:Name="WelcomeLabel"
+                           Text="Welcome, Administrator" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"/>
+                    <Label Text="Admin Control Panel" 
+                           FontSize="13" 
+                           TextColor="{StaticResource PrimaryLightColor}" 
+                           HorizontalOptions="Center"/>
+                    <Label x:Name="DateTimeLabel"
+                           FontSize="11" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"
+                           Margin="0,8,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Admin Stats Section -->
+            <StackLayout Padding="15,20">
+                <Label Text="System Overview" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="{StaticResource PrimaryColor}" 
+                       Margin="0,0,0,15"/>
+                
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*">
+                    
+                    <!-- Total Users -->
+                    <Frame Grid.Row="0" Grid.Column="0" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="👥" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="6" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="{StaticResource PrimaryColor}" HorizontalOptions="Center"/>
+                            <Label Text="Total Users" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Active Events -->
+                    <Frame Grid.Row="0" Grid.Column="1" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="📅" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="5" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="{StaticResource SecondaryColor}" HorizontalOptions="Center"/>
+                            <Label Text="Active Events" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Announcements -->
+                    <Frame Grid.Row="1" Grid.Column="0" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="📢" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="3" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="{StaticResource AccentColor}" HorizontalOptions="Center"/>
+                            <Label Text="Announcements" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Services -->
+                    <Frame Grid.Row="1" Grid.Column="1" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="🏢" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="8" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#7B1FA2" HorizontalOptions="Center"/>
+                            <Label Text="Services" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Residents -->
+                    <Frame Grid.Row="2" Grid.Column="0" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="🏠" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="3" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#4CAF50" HorizontalOptions="Center"/>
+                            <Label Text="Residents" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    <!-- Admins -->
+                    <Frame Grid.Row="2" Grid.Column="1" 
+                           BackgroundColor="White" 
+                           Padding="15" 
+                           Margin="5"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <StackLayout>
+                            <Label Text="⚙️" FontSize="30" HorizontalOptions="Center"/>
+                            <Label Text="3" FontSize="24" FontAttributes="Bold" 
+                                   TextColor="#FF9800" HorizontalOptions="Center"/>
+                            <Label Text="Admins" FontSize="12" 
+                                   TextColor="Gray" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+            <!-- Quick Actions Section -->
+            <StackLayout Padding="15,0,15,20">
+                <Label Text="Quick Actions" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="{StaticResource PrimaryColor}" 
+                       Margin="0,0,0,15"/>
+                
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*">
+                    
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Text="Add Event"
+                            BackgroundColor="{StaticResource SecondaryColor}"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnAddEventClicked"/>
+                    
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Text="New Announcement"
+                            BackgroundColor="{StaticResource AccentColor}"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnAddAnnouncementClicked"/>
+                    
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Text="Manage Users"
+                            BackgroundColor="#7B1FA2"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnManageUsersClicked"/>
+                    
+                    <Button Grid.Row="1" Grid.Column="1"
+                            Text="Logout"
+                            BackgroundColor="#F44336"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="5"
+                            Clicked="OnLogoutClicked"/>
+                </Grid>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -6,7 +6,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<MongoService>();
+// Register Firebase Service
+builder.Services.AddSingleton<FirebaseService>();
 
 var app = builder.Build();
 

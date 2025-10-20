@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:BarangayTech.Services;assembly=BarangayTech.Maui"
+             x:Class="BarangayTech.Views.Admin.AdminTasksPage"
+             Title="Admin Tasks">
+  <StackLayout Padding="16" Spacing="12">
+    <Label Text="Administrative Tasks" FontAttributes="Bold" FontSize="Large" />
+
+    <StackLayout Orientation="Horizontal" Spacing="8">
+      <Entry x:Name="TitleEntry" Placeholder="Task title" HorizontalOptions="FillAndExpand" />
+      <Button Text="Suggest" Clicked="OnSuggestClicked" />
+      <Button Text="Add" Clicked="OnAddClicked" />
+    </StackLayout>
+
+  <CollectionView x:Name="TasksList" SelectionMode="None">
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="services:MobileApiService+AdministrativeTaskDto">
+          <Frame Padding="10" Margin="0,4" HasShadow="True">
+            <StackLayout>
+              <Label Text="{Binding Title}" FontAttributes="Bold" />
+              <Label Text="{Binding Description}" FontSize="Small" />
+              <StackLayout Orientation="Horizontal" Spacing="12">
+                <Label Text="{Binding Priority}" />
+                <Label Text="{Binding Status}" />
+                <Label Text="{Binding AssignedTo}" />
+                <Label Text="{Binding DueDate, StringFormat='{0:MMM dd, yyyy}'}" />
+              </StackLayout>
+              <StackLayout Orientation="Horizontal" Spacing="8">
+                <Button Text="Complete" Clicked="OnCompleteClicked" CommandParameter="{Binding .}" />
+                <Button Text="Delete" Clicked="OnDeleteClicked" CommandParameter="{Binding .}" />
+              </StackLayout>
+            </StackLayout>
+          </Frame>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+  </StackLayout>
+</ContentPage>

@@ -1,11 +1,14 @@
 using System;
 using System.Linq;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using BarangayTech.Services.Auth;
 using BarangayTech.Models;
+using BarangayTech.Services;
 
 namespace BarangayTech.Views.Auth
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
@@ -33,7 +36,7 @@ namespace BarangayTech.Views.Auth
             await PerformLogin("superadmin", "super123");
         }
 
-        private async System.Threading.Tasks.Task PerformLogin(string username, string password)
+        private async System.Threading.Tasks.Task PerformLogin(string? username, string? password)
         {
             try
             {
@@ -44,13 +47,15 @@ namespace BarangayTech.Views.Auth
                 ErrorLabel.IsVisible = false;
 
                 // Update UI with credentials
-                UsernameEntry.Text = username;
-                PasswordEntry.Text = password;
+                var usernameValue = username ?? string.Empty;
+                var passwordValue = password ?? string.Empty;
+                UsernameEntry.Text = usernameValue;
+                PasswordEntry.Text = passwordValue;
 
                 // Perform login
-                var result = await AuthService.LoginAsync(username, password);
+                var result = await AuthService.LoginAsync(usernameValue, passwordValue);
 
-                if (result.IsSuccess)
+                if (result.IsSuccess && result.User != null)
                 {
                     // Navigate based on user role
                     await NavigateToMainApp(result.User);
@@ -58,7 +63,7 @@ namespace BarangayTech.Views.Auth
                 else
                 {
                     // Show error
-                    ErrorLabel.Text = result.ErrorMessage;
+                    ErrorLabel.Text = result.ErrorMessage ?? "Invalid username or password.";
                     ErrorLabel.IsVisible = true;
                 }
             }
@@ -79,42 +84,30 @@ namespace BarangayTech.Views.Auth
         private async System.Threading.Tasks.Task NavigateToMainApp(User user)
         {
             // Show success message
-            await DisplayAlert("Login Successful", $"Welcome, {user.FullName}!", "Continue");
+            var displayName = user.FullName ?? user.Username ?? "User";
+            await DisplayAlert("Login Successful", $"Welcome, {displayName}!", "Continue");
 
             // Navigate to appropriate main page based on role
             if (user.Role == UserRole.Admin || user.Role == UserRole.SuperAdmin)
             {
-                Application.Current.MainPage = new Views.Auth.AdminMainPage();
+                App.CurrentApp.SetRootPage(new AdminMainPage());
             }
             else
             {
-                Application.Current.MainPage = new MainTabbedPage();
+                App.CurrentApp.SetRootPage(new MainTabbedPage());
             }
         }
 
         private async void OnViewCredentialsClicked(object sender, EventArgs e)
         {
-            var credentials = AuthService.GetSampleCredentials();
-            var credentialText = "Sample Login Credentials:\n\n";
+            var credentialText = "To create an account:\n\n";
+            credentialText += "1. Register through the app\n";
+            credentialText += "2. Verify your email\n";
+            credentialText += "3. Login with your credentials\n\n";
+            credentialText += "For demo purposes, use the quick login buttons above.\n";
+            credentialText += "(Note: These require actual Firebase accounts to be created first)";
 
-            credentialText += "ADMIN ACCOUNTS:\n";
-            foreach (var user in credentials.Where(u => u.Role == UserRole.Admin || u.Role == UserRole.SuperAdmin))
-            {
-                credentialText += $"• {user.FullName}\n";
-                credentialText += $"  Username: {user.Username}\n";
-                credentialText += $"  Password: {user.Password}\n";
-                credentialText += $"  Role: {user.Role}\n\n";
-            }
-
-            credentialText += "RESIDENT ACCOUNTS:\n";
-            foreach (var user in credentials.Where(u => u.Role == UserRole.Resident))
-            {
-                credentialText += $"• {user.FullName}\n";
-                credentialText += $"  Username: {user.Username}\n";
-                credentialText += $"  Password: {user.Password}\n\n";
-            }
-
-            await DisplayAlert("Sample Credentials", credentialText, "OK");
+            await DisplayAlert("Login Information", credentialText, "OK");
         }
     }
 }

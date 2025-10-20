@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarangayTech.Views.Admin.AdminProfilePage"
+             Title="Admin Profile">
+    
+    <ScrollView>
+        <StackLayout Padding="20">
+            
+            <!-- Profile Header -->
+            <Frame BackgroundColor="{StaticResource PrimaryColor}" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   Padding="20"
+                   Margin="0,20,0,20">
+                <StackLayout>
+                    <Frame BackgroundColor="White" 
+                           CornerRadius="50" 
+                           WidthRequest="100" 
+                           HeightRequest="100" 
+                           HorizontalOptions="Center"
+                           HasShadow="False"
+                           Padding="0">
+                        <Label Text="👨‍💼" 
+                               FontSize="50" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    
+                    <Label x:Name="FullNameLabel"
+                           Text="Administrator Name" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                    
+                    <Label x:Name="PositionLabel"
+                           Text="Position" 
+                           FontSize="14" 
+                           TextColor="{StaticResource PrimaryLightColor}" 
+                           HorizontalOptions="Center"/>
+                    
+                    <Label x:Name="RoleLabel"
+                           Text="Role" 
+                           FontSize="12" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Profile Information -->
+            <Frame BackgroundColor="White" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   Padding="20">
+                <StackLayout Spacing="15">
+                    
+                    <Label Text="Profile Information" 
+                           FontSize="18" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource TextPrimaryColor}"/>
+                    
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="10">
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="📧" FontSize="16"/>
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="EmailLabel" Text="Email" FontSize="14" Margin="10,0,0,0"/>
+                        
+                        <Label Grid.Row="1" Grid.Column="0" Text="📞" FontSize="16"/>
+                        <Label Grid.Row="1" Grid.Column="1" x:Name="ContactLabel" Text="Contact" FontSize="14" Margin="10,0,0,0"/>
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Text="🏢" FontSize="16"/>
+                        <Label Grid.Row="2" Grid.Column="1" x:Name="DepartmentLabel" Text="Department" FontSize="14" Margin="10,0,0,0"/>
+                        
+                        <Label Grid.Row="3" Grid.Column="0" Text="📅" FontSize="16"/>
+                        <Label Grid.Row="3" Grid.Column="1" x:Name="CreatedDateLabel" Text="Member Since" FontSize="14" Margin="10,0,0,0"/>
+                        
+                        <Label Grid.Row="4" Grid.Column="0" Text="🕐" FontSize="16"/>
+                        <Label Grid.Row="4" Grid.Column="1" x:Name="LastLoginLabel" Text="Last Login" FontSize="14" Margin="10,0,0,0"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!-- Actions -->
+            <StackLayout Spacing="10" Margin="0,20,0,0">
+                
+                <Button Text="Edit Profile" 
+                        BackgroundColor="{StaticResource SecondaryColor}" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnEditProfileClicked"/>
+                
+                <Button Text="Change Password" 
+                        BackgroundColor="{StaticResource AccentColor}" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnChangePasswordClicked"/>
+                
+                <Button Text="Logout" 
+                        BackgroundColor="#F44336" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnLogoutClicked"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
